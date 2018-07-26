@@ -205,6 +205,10 @@ public:
     if (y < panel_height) {
       x += matrix_width / 2;
     }
+    else
+    {
+      y = panel_height - (slab_height - y);
+    }
 
     *matrix_x = x;
     *matrix_y = base_y + y;
