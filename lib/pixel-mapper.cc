@@ -199,16 +199,15 @@ public:
                                   int x, int y,
                                   int *matrix_x, int *matrix_y) const {
     const int panel_height = matrix_height / parallel_;
-    // const int visible_width = (matrix_width / 64) * 32;
     const int slab_height = 2 * panel_height;   // one folded z-shape
-    // const int base_y = (y / slab_height) * panel_height;
+    const int base_y = (y / slab_height) * panel_height;
     y %= slab_height;
     if (y < panel_height) {
       x += matrix_width / 2;
     }
 
     *matrix_x = x;
-    *matrix_y = y;
+    *matrix_y = base_y + y;
   }
 
 private:
